@@ -258,46 +258,51 @@ form {
 }
 
 @media screen and (max-width: 650px) {
-    /* Perfect Centering on Body */
     html, body {
         height: 100dvh;
         width: 100vw;
+        overflow: hidden !important;
+        position: fixed; /* Prevents scrolling and manual zoom-shifting */
         margin: 0;
-        display: flex;
-        justify-content: center; /* Horizontal center */
-        align-items: center;     /* Vertical center */
-        overflow: hidden;
-        position: fixed;
+        padding: 0;
     }
 
     .container {
-        /* Centering the container itself */
-        margin: 0 auto; 
-        height: 85dvh;
+        /* Centering Logic */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Pulls the box back to the exact center */
+        
+        /* Size Constraints */
         width: 92vw;
-        display: flex;
-        flex-direction: column;
+        height: 85dvh;
+        margin: 0; /* Clear existing margins */
+        border-radius: 20px;
+        overflow: hidden !important;
+        z-index: 1000;
     }
 
-    /* THE ANTI-ZOOM FIX */
+    /* Prevent Auto-Zoom on Input Click */
     .input-box input {
-        /* Browsers won't zoom in if font-size is 16px or larger */
         font-size: 16px !important; 
-        padding: 10px 40px 10px 15px;
     }
 
-    /* Since we increased font-size, we slightly shrink the padding 
-       of other elements to keep them from hitting the bottom */
+    /* Scaling the content so it fits within the 85dvh height */
     .form-box {
         padding: 20px;
         height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .container h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
+    .toggle-panel {
+        height: 35%;
+        padding: 15px;
     }
 }
+
 
 
 
