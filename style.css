@@ -258,95 +258,40 @@ form {
 }
 
 @media screen and (max-width: 650px) {
-    html, body {
-        height: 100dvh;
-        width: 100vw;
-        overflow: hidden !important;
-        position: fixed;
-        margin: 0;
-        padding: 0;
+    /* 1. Center Login/Registration Header between the Toggle Panel and the Inputs */
+    .container h1 {
+        font-size: 28px;
+        /* Increased top margin pushes it away from the toggle panel */
+        /* Bottom margin keeps it away from the username box */
+        margin-top: 25px !important; 
+        margin-bottom: 25px !important;
+        display: block;
     }
 
-    /* 1. EQUAL MARGINS ON ALL SIDES */
-    .container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Equalizes top/bottom and left/right margins */
-        width: 90vw;   /* 5% margin on left and right */
-        height: 85dvh;  /* 7.5% margin on top and bottom */
-        margin: 0 !important; 
-        border-radius: 25px;
-        overflow: hidden !important;
-        display: flex;
-        flex-direction: column;
+    /* 2. Center Forgot Password between Password Input and Login Button */
+    .forgot-link {
+        /* This removes the negative margin that was causing it to 'stick' to the input */
+        /* auto-margins or equal top/bottom margins create the centered look */
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        display: block;
+        text-align: center;
     }
 
-    /* 2. FORM BOX RATIO */
-    .form-box {
-        bottom: 0;
-        width: 100%;
-        height: 78%; /* Increased to push social icons lower toward the toggle line */
-        padding: 15px 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .container.active .form-box {
-        bottom: 22%; /* Meets the 22% toggle panel height */
-    }
-
-    /* 3. CLOSER TOGGLE PANEL (REGISTRATION) */
-    .toggle-panel {
-        width: 100%;
-        height: 22%; /* Smaller height brings the text much closer to the icons */
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 5;
-    }
-
-    .toggle-panel h1 {
-        font-size: 22px;
-        margin-bottom: 2px;
-    }
-
-    .toggle-panel p {
-        font-size: 13px;
-        margin-bottom: 10px;
-    }
-
-    /* 4. ELIMINATING THE GAP */
-    .toggle-box::before {
-        height: 400%;
-        width: 100%;
-        left: 0;
-        top: -378%; /* Calculated for 78/22 split */
-    }
-
-    .container.active .toggle-box::before {
-        top: 78%; /* Snaps exactly to the bottom of the form section */
-    }
-
-    /* Tighter content spacing to pull icons up */
+    /* 3. Refine Input Spacing */
+    /* Ensure the gap between inputs is consistent so the headers look better */
     .input-box {
-        margin: 8px 0; 
+        margin: 15px 0 !important;
     }
 
-    .social-icons {
-        margin-top: 2px; /* Pulls icons to the very bottom of the form-box */
+    /* 4. Registration Header Specific Adjustment */
+    /* Ensures 'Registration' sits perfectly like 'Login' */
+    .form-box.register h1 {
+        margin-top: 25px !important;
+        margin-bottom: 25px !important;
     }
-
-    /* Toggle movement logic */
-    .toggle-panel.toggle-left { top: 0; }
-    .container.active .toggle-panel.toggle-left { top: -22%; }
-
-    .toggle-panel.toggle-right { bottom: -22%; }
-    .container.active .toggle-panel.toggle-right { bottom: 0; }
 }
+
 
 
 
