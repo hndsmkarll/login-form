@@ -263,7 +263,6 @@ form {
         width: 100vw;
         overflow: hidden !important;
         position: fixed;
-        margin: 0;
     }
 
     .container {
@@ -272,84 +271,78 @@ form {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 92vw;
-        height: 88dvh; /* Slightly taller to fit icons */
+        height: 88dvh;
         overflow: hidden !important;
     }
 
     .form-box {
         bottom: 0;
         width: 100%;
-        height: 70%; /* Give the form more space */
-        padding: 20px 25px;
+        height: 72%; /* Adjusted to ensure room for all inputs + icons */
+        padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* Spreads content out to avoid overlap */
+        justify-content: center; /* Centers form elements vertically */
     }
 
     .container.active .form-box {
-        bottom: 30%; /* Moves up to reveal registration */
+        bottom: 28%; /* Aligns with the shorter toggle panel */
     }
 
-    /* Shrink the gap between elements to keep icons visible */
-    .container h1 {
-        font-size: 24px;
-        margin: 5px 0;
+    /* Registration specific overlap fix */
+    .form-box.register {
+        justify-content: center;
     }
 
     .input-box {
-        margin: 10px 0;
-    }
-
-    .input-box input {
-        font-size: 16px !important; /* Prevents zoom */
-        padding: 10px 40px 10px 15px;
+        margin: 12px 0; /* Tighter spacing to keep icons visible */
     }
 
     .social-icons {
-        margin-top: 5px;
+        margin-top: 10px;
     }
 
-    .social-icons a {
-        padding: 6px;
-        font-size: 18px;
-        margin: 0 5px;
-    }
-
-    /* THE FIX: Adjusting the Toggle Panel height and position */
+    /* THE TOGGLE PANEL CENTERING FIX */
     .toggle-panel {
         width: 100%;
-        height: 30%; /* Reduced from 35% to stop covering icons */
-        padding: 10px;
+        height: 28%; /* Slightly shorter to avoid overlap */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* PERFECT VERTICAL CENTERING */
+        align-items: center;     /* PERFECT HORIZONTAL CENTERING */
+        text-align: center;
+    }
+
+    .toggle-panel h1 {
+        font-size: 24px;
+        margin-bottom: 5px; /* Less space to keep it centered */
+    }
+
+    .toggle-panel p {
+        margin-bottom: 15px;
+        font-size: 14px;
     }
 
     .toggle-box::before {
         height: 400%;
         width: 100%;
         left: 0;
-        top: -370%; /* Initial state for Login */
+        top: -372%; /* Position for Login state */
     }
 
     .container.active .toggle-box::before {
-        top: 70%; /* Exactly matches the height ratio of the form */
+        top: 72%; /* Position for Registration state */
     }
 
-    /* Ensure panels move out of the way correctly */
-    .toggle-panel.toggle-left {
-        top: 0;
-    }
+    /* Panel movement logic */
+    .toggle-panel.toggle-left { top: 0; }
+    .container.active .toggle-panel.toggle-left { top: -28%; }
 
-    .container.active .toggle-panel.toggle-left {
-        top: -30%;
-    }
-
-    .toggle-panel.toggle-right {
-        bottom: -30%;
-    }
-
-    .container.active .toggle-panel.toggle-right {
-        bottom: 0;
-    }
+    .toggle-panel.toggle-right { bottom: -28%; }
+    .container.active .toggle-panel.toggle-right { bottom: 0; }
 }
+
 
 
 
