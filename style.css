@@ -257,40 +257,47 @@ form {
     }
 }
 
-@media screen and (max-width: 400px) {
-    .form-box {
-        padding: 20px;
-    }
-
-    .toggle-panel h1 {
-        font-size: 30px;
+@media screen and (max-width: 650px) {
+    html, body {
+        /* Prevents the page from being taller than the actual visible screen */
+        height: 100dvh; 
+        width: 100vw;
+        overflow: hidden;
+        position: fixed;
     }
 
     body {
-        /* Prevents the blank scroll area on the page level */
-        overflow: hidden; 
+        /* Ensures everything stays centered even when the URL bar hides/shows */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .container {
-        height: calc(100vh - 40px);
-        /* Ensures the 300% height toggle-box doesn't create scrollable space */
-        overflow: hidden; 
+        /* Use a percentage of the dynamic height so it never hits the tabs */
+        height: 90dvh; 
+        width: 90vw;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        /* Force everything inside to stay put */
+        overflow: hidden !important; 
+    }
+
+    .form-box {
+        padding: 30px; /* Slightly reduced padding to save space */
+        height: 75%; /* Gives more room for the toggle panel */
+    }
+
+    /* Fix for the inputs being too large on small screens */
+    .input-box {
+        margin: 20px 0; 
+    }
+
+    .input-box input {
+        padding: 10px 40px 10px 15px;
+        font-size: 14px;
     }
 }
 
-/* Add this to the top of your CSS or update your existing body rule */
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* This is the "kill switch" for the blank scroll */
-    position: fixed;  /* Prevents the 'rubber-band' bounce on mobile */
-}
-
-/* Ensure the container is strictly bound */
-.container {
-    overflow: hidden !important;
-    touch-action: none; /* Prevents accidental swiping/scrolling */
-}
 
