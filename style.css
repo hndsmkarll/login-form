@@ -258,39 +258,23 @@ form {
 }
 
 @media screen and (max-width: 650px) {
-    /* 1. Center Login/Registration Header between the Toggle Panel and the Inputs */
+    /* 1. Centering the Login/Registration Header between the toggle panel and username input */
     .container h1 {
-        font-size: 28px;
-        /* Increased top margin pushes it away from the toggle panel */
-        /* Bottom margin keeps it away from the username box */
+        /* Set top and bottom margins to be exactly equal */
         margin-top: 25px !important; 
         margin-bottom: 25px !important;
-        display: block;
     }
 
-    /* 2. Center Forgot Password between Password Input and Login Button */
+    /* 2. Centering Forgot Password between the password input and the login button */
     .forgot-link {
-        /* This removes the negative margin that was causing it to 'stick' to the input */
-        /* auto-margins or equal top/bottom margins create the centered look */
-        margin-top: 20px !important;
-        margin-bottom: 20px !important;
-        display: block;
-        text-align: center;
+        /* Overriding the negative margin to make it sit exactly in the middle */
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
     }
 
-    /* 3. Refine Input Spacing */
-    /* Ensure the gap between inputs is consistent so the headers look better */
-    .input-box {
-        margin: 15px 0 !important;
-    }
-
-    /* 4. Registration Header Specific Adjustment */
-    /* Ensures 'Registration' sits perfectly like 'Login' */
-    .form-box.register h1 {
-        margin-top: 25px !important;
-        margin-bottom: 25px !important;
-    }
+    /* Keep everything else exactly as you have it in your structure */
 }
+
 
 
 
