@@ -277,3 +277,20 @@ form {
         overflow: hidden; 
     }
 }
+
+/* Add this to the top of your CSS or update your existing body rule */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* This is the "kill switch" for the blank scroll */
+    position: fixed;  /* Prevents the 'rubber-band' bounce on mobile */
+}
+
+/* Ensure the container is strictly bound */
+.container {
+    overflow: hidden !important;
+    touch-action: none; /* Prevents accidental swiping/scrolling */
+}
+
