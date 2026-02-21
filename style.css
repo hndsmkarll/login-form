@@ -259,45 +259,77 @@ form {
 
 @media screen and (max-width: 650px) {
     html, body {
-        /* Prevents the page from being taller than the actual visible screen */
-        height: 100dvh; 
+        /* Lock the viewport height to exactly what is visible */
+        height: 100dvh !important;
         width: 100vw;
-        overflow: hidden;
+        overflow: hidden !important;
         position: fixed;
     }
 
-    body {
-        /* Ensures everything stays centered even when the URL bar hides/shows */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .container {
-        /* Use a percentage of the dynamic height so it never hits the tabs */
-        height: 90dvh; 
+        /* Shorter height to stay well clear of bottom browser tabs */
+        height: 85dvh !important; 
         width: 90vw;
-        margin: 0 auto;
+        margin: auto;
+        border-radius: 20px;
+        /* Ensures the moving toggle-box is trapped inside */
+        overflow: hidden !important; 
         display: flex;
         flex-direction: column;
-        /* Force everything inside to stay put */
-        overflow: hidden !important; 
     }
 
     .form-box {
-        padding: 30px; /* Slightly reduced padding to save space */
-        height: 75%; /* Gives more room for the toggle panel */
+        bottom: 0;
+        width: 100%;
+        height: 65%; /* Reduced height to ensure alignment */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    /* Fix for the inputs being too large on small screens */
+    .container.active .form-box {
+        bottom: 35%; /* Matches the remaining height */
+    }
+
+    /* Shrink headings and inputs to fit perfectly */
+    .container h1 {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
     .input-box {
-        margin: 20px 0; 
+        margin: 15px 0;
     }
 
     .input-box input {
         padding: 10px 40px 10px 15px;
         font-size: 14px;
     }
+
+    .social-icons a {
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        height: 35%; /* Fixed height ratio */
+        padding: 15px;
+    }
+
+    /* Prevent the massive shape from expanding the page */
+    .toggle-box::before {
+        height: 400%; /* Keep it tall for the curve, but... */
+        width: 100%;
+        left: 0;
+        top: -360%; /* ...push it way up */
+    }
+
+    .container.active .toggle-box::before {
+        top: 65%; /* Move it down exactly where the form ends */
+    }
 }
+
 
 
