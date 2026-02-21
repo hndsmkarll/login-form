@@ -262,46 +262,95 @@ form {
         height: 100dvh;
         width: 100vw;
         overflow: hidden !important;
-        position: fixed; /* Prevents scrolling and manual zoom-shifting */
+        position: fixed;
         margin: 0;
-        padding: 0;
     }
 
     .container {
-        /* Centering Logic */
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); /* Pulls the box back to the exact center */
-        
-        /* Size Constraints */
+        transform: translate(-50%, -50%);
         width: 92vw;
-        height: 85dvh;
-        margin: 0; /* Clear existing margins */
-        border-radius: 20px;
+        height: 88dvh; /* Slightly taller to fit icons */
         overflow: hidden !important;
-        z-index: 1000;
     }
 
-    /* Prevent Auto-Zoom on Input Click */
-    .input-box input {
-        font-size: 16px !important; 
-    }
-
-    /* Scaling the content so it fits within the 85dvh height */
     .form-box {
-        padding: 20px;
-        height: 65%;
+        bottom: 0;
+        width: 100%;
+        height: 70%; /* Give the form more space */
+        padding: 20px 25px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between; /* Spreads content out to avoid overlap */
     }
 
+    .container.active .form-box {
+        bottom: 30%; /* Moves up to reveal registration */
+    }
+
+    /* Shrink the gap between elements to keep icons visible */
+    .container h1 {
+        font-size: 24px;
+        margin: 5px 0;
+    }
+
+    .input-box {
+        margin: 10px 0;
+    }
+
+    .input-box input {
+        font-size: 16px !important; /* Prevents zoom */
+        padding: 10px 40px 10px 15px;
+    }
+
+    .social-icons {
+        margin-top: 5px;
+    }
+
+    .social-icons a {
+        padding: 6px;
+        font-size: 18px;
+        margin: 0 5px;
+    }
+
+    /* THE FIX: Adjusting the Toggle Panel height and position */
     .toggle-panel {
-        height: 35%;
-        padding: 15px;
+        width: 100%;
+        height: 30%; /* Reduced from 35% to stop covering icons */
+        padding: 10px;
+    }
+
+    .toggle-box::before {
+        height: 400%;
+        width: 100%;
+        left: 0;
+        top: -370%; /* Initial state for Login */
+    }
+
+    .container.active .toggle-box::before {
+        top: 70%; /* Exactly matches the height ratio of the form */
+    }
+
+    /* Ensure panels move out of the way correctly */
+    .toggle-panel.toggle-left {
+        top: 0;
+    }
+
+    .container.active .toggle-panel.toggle-left {
+        top: -30%;
+    }
+
+    .toggle-panel.toggle-right {
+        bottom: -30%;
+    }
+
+    .container.active .toggle-panel.toggle-right {
+        bottom: 0;
     }
 }
+
 
 
 
