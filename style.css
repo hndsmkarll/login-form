@@ -265,4 +265,15 @@ form {
     .toggle-panel h1 {
         font-size: 30px;
     }
+
+    body {
+        /* Prevents the blank scroll area on the page level */
+        overflow: hidden; 
+    }
+
+    .container {
+        height: calc(100vh - 40px);
+        /* Ensures the 300% height toggle-box doesn't create scrollable space */
+        overflow: hidden; 
+    }
 }
